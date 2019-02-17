@@ -1,0 +1,72 @@
+/* line 1, /Users/hatsunematsui/Desktop/ex05/drop_down.scss */
+* {
+  padding: 0;
+  margin: 0; }
+
+/* line 12, /Users/hatsunematsui/Desktop/ex05/drop_down.scss */
+.tittle {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: normal;
+  color: #ff0a38;
+  margin-top: 60px; }
+
+/* line 21, /Users/hatsunematsui/Desktop/ex05/drop_down.scss */
+.Wrapper {
+  padding-top: 60px;
+  width: 980px;
+  margin: 0 auto; }
+
+/* line 27, /Users/hatsunematsui/Desktop/ex05/drop_down.scss */
+#global-navigation-wrapper {
+  border-color: #ea002c;
+  width: 100%; }
+
+/* line 33, /Users/hatsunematsui/Desktop/ex05/drop_down.scss */
+.grobal-navigation {
+  margin: 0 auto;
+  width: 980px;
+  height: 44px; }
+  /* line 37, /Users/hatsunematsui/Desktop/ex05/drop_down.scss */
+  .grobal-navigation:before, .grobal-navigation:after {
+    content: "";
+    display: table; }
+  /* line 42, /Users/hatsunematsui/Desktop/ex05/drop_down.scss */
+  .grobal-navigation li {
+    list-style: none;
+    box-sizing: border-box;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    transition: 80ms linear all;
+    background-color: #ff0a38; }
+    /* line 50, /Users/hatsunematsui/Desktop/ex05/drop_down.scss */
+    .grobal-navigation li:hover {
+      color: #ff0a38;
+      background-color: #fff; }
+  /* line 56, /Users/hatsunematsui/Desktop/ex05/drop_down.scss */
+  .grobal-navigation .top-level {
+    position: relative; }
+    /* line 58, /Users/hatsunematsui/Desktop/ex05/drop_down.scss */
+    .grobal-navigation .top-level > li {
+      float: left;
+      width: 33.333%;
+      border-right: 1px solid #fff; }
+      /* line 62, /Users/hatsunematsui/Desktop/ex05/drop_down.scss */
+      .grobal-navigation .top-level > li:last-child {
+        border-right: none; }
+  /* line 68, /Users/hatsunematsui/Desktop/ex05/drop_down.scss */
+  .grobal-navigation .second-level {
+    position: absolute;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6); }
+
+/* line 76, /Users/hatsunematsui/Desktop/ex05/drop_down.scss */
+.simple-drop-down-menu > .second-level {
+  width: inherit;
+  display: none; }
+
+/* line 80, /Users/hatsunematsui/Desktop/ex05/drop_down.scss */
+.simple-drop-down-menu:hover .Second-level {
+  display: block; }
+
+/*# sourceMappingURL=drop_down.css.map */

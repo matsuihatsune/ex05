@@ -1,0 +1,102 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+//変数の定義
+$navigation-width:980px;//ナビゲーションの横幅
+$navigation-height:44px;//ナビゲーションの高さ
+$navigation-text-color:#fff;//文字の色
+$base-background-color:#fff;//ナビゲーションの上をホバーした時の色
+$base-navigation-color:#ff0a38;//ナビゲーションの背景色
+
+.tittle{
+ text-align: center;
+    margin-bottom: 40px;
+    font-weight: normal;
+    color:$base-navigation-color;
+    margin-top: 60px;
+}
+
+//ナビゲーションの下にあるコンテンツのラッパー
+.Wrapper{
+    padding-top: 60px;
+    width:$navigation-width ;
+    margin: 0 auto;
+}
+//header
+#global-navigation-wrapper{
+    border-color: darken($base-navigation-color,6%);
+    width: 100%;
+}
+
+//グローバルナビゲーションの共通部分
+.grobal-navigation{
+    margin: 0 auto;
+    width:$navigation-width ;
+    height: $navigation-height;
+    &:before, &:after{//floatの解除
+        content:"";
+        display: table;
+    }
+    //ナビゲーション以下の共通レイアウト
+    li{
+        list-style: none;
+        box-sizing: border-box;
+        padding: 10px;
+        text-decoration: none;
+        color: $navigation-text-color;
+        transition: 80ms linear all;//ホバーしたときのアニメーション
+        background-color: $base-navigation-color;
+        &:hover{
+            color: $base-navigation-color;
+            background-color: $base-background-color;
+        }
+    }
+    //トップレベルのナビゲーションリスト
+    .top-level{
+        position: relative;//重要*４
+        &>li{
+            float: left;//横並びする
+            width: 33.333%;//重要*５
+            border-right: 1px solid $base-background-color;//仕切り線
+            &:last-child{
+                border-right: none;// 一番右の要素には仕切り線は不要
+            }
+        }
+    }
+   //セカンドレベルのナビゲーションリスト
+    .second-level{
+        position: absolute;//重要*６
+        box-shadow: 0 5px 10px rgba(0,0,0,0.6);
+    }
+}
+
+//最も単純なドロップダウンメニュー
+.simple-drop-down-menu{
+    &>.second-level{
+        width: inherit;//親要素の横幅を継承する
+        display: none;
+    }
+    &:hover .Second-level{
+        display: block;
+    }
+}
+
+//ドロップダウンアニメーショーんの共通パーツ
+%slide-down-initialize{//アニメーションの開始値
+    opacity: 0;//不透明度
+    visibility: hidden;//見えない場合のホバーアクションを無効にする
+    top:$navigation-height / 3;
+    transition: 3s ease-in all;
+}
+
+//スライドダウンしながら表示する場合
+.slide-drop-down-menu{
+    &>.second-level{
+        width: inherit;//シンプルなドロップダウンメニューと同様
+        @extend%slide-down-initialize;
+    }
+    &:hover .second-level{
+        @extend%slide-down-finish;
+    }
+}

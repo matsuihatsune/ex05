@@ -1,0 +1,27 @@
+//変数の定義
+$navigation-width:980px;//ナビゲーションの横幅
+$navigation-height:44px;//ナビゲーションの高さ
+$navigation-text-color:#fff;//文字の色
+$base-background-color:#fff;//ナビゲーションの上をホバーした時の色
+$base-navigation-color:#ff0a38;//ナビゲーションの背景色
+
+.mega-drop-menu{
+    &> .second-level{
+        @extend %slide-down-initialize;
+        width: 100%;//.top-levelの横幅を同じ幅になる
+        left: 0;//.top-levelの左端にくっつく
+        //セカンドレベルのナビゲーションは横並びにする
+        li{
+            float: left;//横並びにする
+        }
+        //ナビゲーションを横に４つ並べる正方形に並べる
+        a{
+            width: $navigation-width / 4;//"4"は4つ並べるため
+            height: $navigation-width / 4;
+            border:1px solid #FFF;//box-sizingが効いている
+        }
+    }
+    &:hover > .second-level{
+        @extend %slide-down-finish;//アニメーションの終了値
+    }
+}
